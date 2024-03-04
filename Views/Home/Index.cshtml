@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+}
+@model todoapp.Models.login
+@using (Html.BeginForm("index", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(x => x.username, new { @class = "form-control", placeholder = "username" })
+    @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+
+    @Html.PasswordFor(x => x.password, new { @class = "form-control", placeholder = "password" })
+    @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+
+    @Html.DropDownListFor(x => x.roletype, Model.role, "select Item", new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.roletype, "", new { @class = "text-danger" })
+
+
+    <input type="submit" value="Create" class="btn btn-success" />
+}
